@@ -12,7 +12,7 @@ jobs:
     name: Post welcome comment
     runs-on: ubuntu-latest
     
-## step 3.0: post a comment on new pull requests using GitHub CL
+## step 3.0: post a comment on new pull requests using GitHub CLI
     steps:
       - run: gh pr comment "$PR_URL" --body "Welcome to the repository!"
         env:
