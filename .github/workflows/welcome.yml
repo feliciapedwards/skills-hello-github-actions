@@ -1,6 +1,12 @@
+## step 1.0
 name: Post welcome comment
 on:
   pull_request:
     types: [opened]
 permissions:
   pull-requests: write
+## step 2.0
+jobs:
+  welcome:
+    name: Post welcome comment
+    runs-on: ubuntu-latest
