@@ -1,6 +1,20 @@
+## step 1.0
 name: Post welcome comment
 on:
   pull_request:
     types: [opened]
 permissions:
   pull-requests: write
+  
+## step 2.0: run on the latest Ubuntu operating system
+jobs:
+  welcome:
+    name: Post welcome comment
+    runs-on: ubuntu-latest
+    
+## step 3.0: post a comment on new pull requests using GitHub CL
+    steps:
+      - run: gh pr comment "$PR_URL" --body "Welcome to the repository!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
